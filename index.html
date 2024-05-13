@@ -10,7 +10,7 @@
         <div class="calbox">
             <h2>Words Calculator</h2>
             <div>
-            <textarea name="textarea" id="textbox" cols="50" rows="10" placeholder="Enter a paragraph"></textarea>
+            <textarea name="textarea" id="textbox" cols="40" rows="10" placeholder="Enter a paragraph"></textarea>
             </div>
             <button type="submit" onclick="calc()" id="button">Calculate words</button>
             <div id="result"></div>
@@ -24,6 +24,7 @@
             margin: 0;
         }
         .calbox{
+            width: 300px;
             background-color: #E7BCDE;
             padding: 40px;
             height: 50%;
@@ -60,6 +61,14 @@
             background-color: #f7e2ed;
             border: 3px solid #67729D;
         }
+
+
+
+        @media all and (max-width:400px)  {
+            .calbox{
+                width: 250px;
+            }
+        }
     </style>
     
 
@@ -67,12 +76,17 @@
     <script>
         function calc(){
             const para=document.getElementById("textbox").value
-            let str=String(para)
-            let arr=str.split(" ")
-            let length=arr.length
-            let result=document.getElementById("result")
-            result.innerHTML=length+" words"
-        
+            if(para == ""){
+                result.innerHTML="0 words"
+            }
+            else{
+                let str=String(para)
+                let arr=str.split(" ")
+                let length=arr.length
+                let result=document.getElementById("result")
+                result.innerHTML=length+" words"
+            }
+            
             
         }
         
